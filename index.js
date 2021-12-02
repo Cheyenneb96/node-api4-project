@@ -2,13 +2,21 @@ require("dotenv").config();
 const express = require('express')
 const cors = require('cors')
 const server = express()
+
 const PORT = process.env.PORT || 9000
 
 server.use(express.json())
 server.use(cors())
 
 server.get('/api/users', (req,res,next)=>{
-    res.json(users)
+    res.json([
+        { id: 1, username: "phillip", password: "black"},
+        { id: 2, username: "Sarah",password: "Good "},
+        { id: 3, username: "Bridget",password: "Bishop"},
+        { id: 4, username: "Elizabeth",password: "Howe"},
+        { id: 5, username: "Susannah",password: "Martin"},
+        { id: 6, username: "Rebecca",password: "Nurse"}
+    ])
 })
 
 server.use("*", (req,res,next)=>{
